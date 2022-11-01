@@ -19,6 +19,8 @@ export default function BottomTabs() {
           height: 68
         }
       }}
+
+      initialRouteName="Home"
     >
       {tabNavigationData.map((item, idx) => (
         <Tab.Screen 
