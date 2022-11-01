@@ -3,8 +3,6 @@ import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import AppView from './src/modules/AppView'
 
-const Stack = createNativeStackNavigator();
-
 
 function App() {
   return (
