@@ -3,11 +3,11 @@ import { TextInput, StyleSheet } from 'react-native';
 
 
 export default function CustomTextInput(props) {
-    const [text, onChangeText] = React.useState("");
+    const [text, onChangeText] = React.useState(props.value);
 
     return (
         <TextInput
-            style={styles.customTextInput}
+            style={[styles.customTextInput, props.style]}
             placeholder={props.placeholder}
             value={text}
             onChangeText={onChangeText}
@@ -17,7 +17,7 @@ export default function CustomTextInput(props) {
 
 const styles = StyleSheet.create({
     customTextInput: {
-        width: '80%',
+        width: '100%',
         height: 60,
         borderWidth: 4,
         borderColor: 'gray',

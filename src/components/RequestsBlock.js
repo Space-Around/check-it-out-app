@@ -15,7 +15,7 @@ export default function RequestsBlock(props) {
 
 const styles = StyleSheet.create({
     requestsBlock: {
-        width: '80%',
+        width: '100%',
         height: 90,
         display: 'flex',
         justifyContent: 'center',

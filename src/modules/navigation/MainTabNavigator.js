@@ -61,6 +61,6 @@ const styles = StyleSheet.create({
     height: 30,
   },
   tabBarIconFocused: {
-    tintColor: colors.primary,
+    tintColor: colors.blue,
   },
 });

@@ -9,8 +9,9 @@ export default function CustomButton(props) {
             style={[{
                 backgroundColor: props.backgroundColor,
                 borderColor: props.borderColor,
-                borderWidth: props.borderColor ? 4 : 0
-            }, styles.customButton]}
+                borderWidth: props.borderColor ? 4 : 0,
+                width: props.width ? props.width : '100%'
+            }, styles.customButton, props.style]}
         >
             <Text
                 style={[{color: props.textColor}, styles.textCustomButton]}>
@@ -22,7 +23,6 @@ export default function CustomButton(props) {
 
 const styles = StyleSheet.create({
     customButton: {
-        width: '80%',
         height: 60,
         display: 'flex',
         justifyContent: 'center',

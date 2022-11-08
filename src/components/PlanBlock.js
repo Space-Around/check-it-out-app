@@ -1,24 +1,25 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import blueVersion from '../styles/colors'
 
 
 export default function PlanBlock(props) {    
     return (
-        <View style={styles.planBlock}>
+        <TouchableOpacity style={styles.planBlock}>
             <Text style={styles.planBlockText}>{props.text}</Text>
-        </View>
+        </TouchableOpacity>
     );
 }
 
 const styles = StyleSheet.create({
     planBlock: {
-        width: '80%',
+        width: '100%',
         height: 80,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 20,
-        backgroundColor: 'blue'
+        backgroundColor: blueVersion.blue
     },
     planBlockText: {
         fontWeight: 'bold',

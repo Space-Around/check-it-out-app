@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import blueVersion from '../styles/colors'
 
 
 export default function WelcomeTitle(props) {
@@ -15,17 +16,17 @@ export default function WelcomeTitle(props) {
 const styles = StyleSheet.create({
     welcomeTitleFirst: {
         color: 'black',
-        fontSize: 35,
+        fontSize: 40,
         fontWeight: 'normal',        
     },
     welcomeTitleSecond: {
-        color: 'blue',
-        fontSize: 35,
+        color: blueVersion.blue,
+        fontSize: 40,
         fontWeight: 'bold', 
     },
     welcomeTitleThird: {
         color: 'black',
-        fontSize: 35,
+        fontSize: 40,
         fontWeight: 'bold', 
     },
     welcomeTitleBlock: {
