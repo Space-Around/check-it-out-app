@@ -32,11 +32,11 @@ export default function AccountView({ route, navigation }) {
 					<TextInput placeholder='Password' value=''/>
 					<TextInput style={styles.accountPasswordTextInput} placeholder='Repeat password' value=''/>
 				</View>
-				<View style={styles.accountViewPlanBlock}>
+				<View style={styles.accountViewLogoutBlock}>
 					<Title text='Log out'/>
 					<CustomButton backgroundColor={blueVersion.transparent} borderColor='red' textColor='red' text='Log out' width='100%'/>
 				</View>
-				<View style={styles.accountViewPlanBlock}>
+				<View style={styles.accountViewSaveBlock}>
 					<CustomButton style={styles.accountSaveButton} backgroundColor={blueVersion.blue} textColor='white' text='Save' width='100%'/>
 				</View>
 			</ScrollView>
@@ -46,11 +46,10 @@ export default function AccountView({ route, navigation }) {
 
 const styles = StyleSheet.create({
 	safeAria: {
-		flex: 1,
-		paddingTop: StatusBar.currentHeight
+		flex: 1,		
 	},
 	accountView: {
-		flex: 1,
+		flex: 1,	
 		width: '100%',
 		heught: '100%',
 		paddingLeft: '8%',
@@ -75,17 +74,25 @@ const styles = StyleSheet.create({
 	},
 	accountViewUsernameBlock: {
 		width: '100%',
-		marginTop: 20,
+		marginTop: 40,
 	},
 	accountViewEmailBlock: {
 		width: '100%',
-		marginTop: 20,
+		marginTop: 40,
 	},
 	accountPasswordTextInput: {
 		marginTop: 20
 	},
+	accountViewLogoutBlock: {
+		width: '100%',
+		marginTop: 40,
+	},
+	accountViewSaveBlock: {
+		width: '100%',
+		marginTop: 40,
+	},
 	accountSaveButton: {
-		marginTop: 20,
+		marginTop: 40,
 		marginBottom: 20,
 	}
 });

@@ -27,6 +27,7 @@ export default function LogoButton(props) {
     return (
         <TouchableOpacity
             style={styles.logoButton}
+            onPress={() => props.onPress()}
         >
             <Image source={iconPath} resizeMode='contain' style={styles.iconLogoButton} />
         </TouchableOpacity>

@@ -12,6 +12,7 @@ export default function CustomButton(props) {
                 borderWidth: props.borderColor ? 4 : 0,
                 width: props.width ? props.width : '100%'
             }, styles.customButton, props.style]}
+            onPress={() => props.onPress()}
         >
             <Text
                 style={[{color: props.textColor}, styles.textCustomButton]}>

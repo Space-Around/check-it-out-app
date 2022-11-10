@@ -6,6 +6,7 @@ export default function RequestsBlock(props) {
     return (
         <TouchableOpacity
             style={styles.requestsBlock}
+            onPress={() => props.onPress()}
         >
             <Text style={styles.requestsBlockBigText}>{props.bigText}</Text>
             <Text style={styles.requestsBlockSmallText}>{props.smallText}</Text>

@@ -8,26 +8,33 @@ import RequestsBlock from '../../components/RequestsBlock'
 import ProposalBlock from '../../components/ProposalBlock'
 import LogoButton from '../../components/LogoButton'
 import CustomButton from '../../components/Button'
+import CheckItOutModal from '../../components/CheckItOutModal'
+import LangModal from '../../components/LangModal'
 import blueVersion from '../../styles/colors'
 
 
 export default function HomeView({ route, navigation }) {
+	const [modalCameraVisible, setModalCameraVisible] = React.useState(false);
+	const [modalLangVisible, setModalLangVisible] = React.useState(false);
+	const [modalProposalVisible, setModalProposalVisible] = React.useState(false);
+	const [modalAdvVisible, setModalAdvVisible] = React.useState(false);
+
 	return (
 		<View style={styles.homeView}>
 			<View style={styles.homeViewWelcomeBlock}>
 				<WelcomeTitle text='Max!'/>
-				<IconButton icon='settings'/>
+				<IconButton icon='settings' onPress={() => navigation.navigate('Settings')}/>
 			</View>
 			<View style={styles.homeViewPlanBlock}>                
-				<Title text='Current plan'/>
-				<PlanBlock text='Standart'/>
+				<Title text='Plan'/>
+				<PlanBlock text='Standart' onPress={() => navigation.navigate('Account')}/>
 			</View>
 			<View style={styles.homeViewRequestsBlock}>
 				<View style={styles.homeViewRequestsBlockChild}>
-					<Title text='Requests in month'/>
-					<IconButton icon='plus'/>
+					<Title text='Requests'/>
+					<IconButton icon='plus' onPress={() => navigation.navigate('Account')}/>
 				</View>
-				<RequestsBlock bigText='210' smallText='/210'/>
+				<RequestsBlock bigText='210' smallText='/210' onPress={() => navigation.navigate('Account')}/>
 			</View>
 			<View style={styles.homeViewRequestsBlock}>
 				<View style={styles.homeViewRequestsBlockChild}>
@@ -37,10 +44,20 @@ export default function HomeView({ route, navigation }) {
 				<ProposalBlock text='Subscription for one year' bigText='20' smallText='%'/>
 			</View>
 			<View style={styles.homeViewButtonBlock}>
-				<LogoButton icon='translate'/>
-				<CustomButton backgroundColor={blueVersion.blue} textColor='white' text='Check it out!' width='70%'/>
+				<LogoButton icon='translate'
+					onPress={() => setModalLangVisible(!modalLangVisible)}
+				/>
+				<CustomButton
+					backgroundColor={blueVersion.blue}
+					textColor='white'
+					text='Check it out!'
+					width='70%'
+					onPress={() => setModalCameraVisible(!modalCameraVisible)}
+				/>
 			</View>
-		</View>
+			<CheckItOutModal state={modalCameraVisible} changeState={() => setModalCameraVisible(false)}></CheckItOutModal>
+			<LangModal state={modalLangVisible} changeState={() => setModalLangVisible(false)}/>
+		</View>		
 	);
 }
 

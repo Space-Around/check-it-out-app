@@ -3,7 +3,7 @@ import { Image, TouchableOpacity, StyleSheet } from 'react-native';
 
 
 export default function IconButton(props) {
-    let iconPath = '';
+    let iconPath = '';    
 
     switch(props.icon) {
         case 'settings': {
@@ -22,7 +22,8 @@ export default function IconButton(props) {
 
     return (
         <TouchableOpacity
-        style={styles.iconButton}
+            style={styles.iconButton}
+            onPress={() => props.onPress()}
         >
             <Image source={iconPath} resizeMode='contain' style={styles.iconButtonSize} />
         </TouchableOpacity>

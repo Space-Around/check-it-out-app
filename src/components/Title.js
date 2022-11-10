@@ -11,7 +11,7 @@ export default function CustomTitle(props) {
 const styles = StyleSheet.create({
     customTitle: {
         color: 'black',
-        fontSize: 25,
+        fontSize: 30,
         fontWeight: 'bold',
         paddingBottom: 15     
     },

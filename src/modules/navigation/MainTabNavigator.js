@@ -19,7 +19,6 @@ export default function BottomTabs() {
           height: 68
         }
       }}
-
       initialRouteName="Home"
     >
       {tabNavigationData.map((item, idx) => (
@@ -38,6 +37,7 @@ export default function BottomTabs() {
             </View>
           ),
           tabBarShowLabel: false,
+          unmountOnBlur: true
         }}
         />        
       ))}

@@ -3,15 +3,15 @@ import { Modal, TouchableOpacity, View, Image, StyleSheet } from 'react-native';
 
 
 export default function CustomModal(props) {
-    const [modalVisible, setModalVisible] = useState(true);
+    // const [modalVisible, setModalVisible] = useState(true);
 
     return (
         <Modal
             animationType="slide"
             transparent={true}
-            visible={modalVisible}
+            visible={props.state}
             onRequestClose={() => {            
-            setModalVisible(!modalVisible);
+                props.changeState(!props.state);
             }}
             style={styles.customModal}
         >
@@ -20,7 +20,7 @@ export default function CustomModal(props) {
                 <View style={styles.viewModal}>
                     <TouchableOpacity
                         style={styles.buttonModal}
-                        onPress={() => setModalVisible(!modalVisible)}
+                        onPress={() => props.changeState(!props.state)}
                     >
                         <Image source={require('../../assets/images/icons/close.png')} style={styles.iconButtonModal}/>
                     </TouchableOpacity>
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'black',
         position: 'absolute',
         zIndex: 1,
-        opacity: 0.2
+        opacity: 0.1
     },
     iconButtonModal: {
         width: 40,

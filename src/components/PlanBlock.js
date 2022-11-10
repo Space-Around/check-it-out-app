@@ -5,7 +5,10 @@ import blueVersion from '../styles/colors'
 
 export default function PlanBlock(props) {    
     return (
-        <TouchableOpacity style={styles.planBlock}>
+        <TouchableOpacity
+            style={styles.planBlock}
+            onPress={() => props.onPress()}
+        >
             <Text style={styles.planBlockText}>{props.text}</Text>
         </TouchableOpacity>
     );
