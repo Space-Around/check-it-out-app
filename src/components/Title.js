@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     customTitle: {
         color: 'black',
         fontSize: 30,
-        fontWeight: 'bold',
+        fontWeight: '900',
         paddingBottom: 15     
     },
 });

@@ -2,8 +2,8 @@ import Modal from "react-native-modal";
 import React, { useState } from 'react';
 import { TouchableOpacity, View, Image, Text, SafeAreaView, FlatList, StatusBar, StyleSheet } from 'react-native';
 
-const Item = ({ title, path, checked, selectLang, setUpdateLangFnc, changeModalState }) => (
-	<TouchableOpacity style={styles.langModalItemButton} onPress={() => selectLang(title, setUpdateLangFnc, changeModalState)}>
+const Item = ({ title, path, checked, selectLang, setUpdateLangFnc, changeModalState, setCurrentLang }) => (
+	<TouchableOpacity style={styles.langModalItemButton} onPress={() => selectLang(title, setUpdateLangFnc, changeModalState, setCurrentLang)}>
 		{checked && (
 			<Image source={require('../../assets/images/icons/check_circle.png')} resizeMode='contain' style={[styles.langModalItemButtonImage, styles.langModalItemButtonImageCheck]} />	
 		)}
@@ -60,11 +60,7 @@ export default function LangModal(props) {
 
 	const [stateLangList, setStateLangList] = React.useState(langList);
 
-	const renderItem = ({ item }, props) => (
-		<Item title={item.title} path={item.path} checked={item.checked} setUpdateLangFnc={props.setUpdateLang} selectLang={props.selectLang}/>
-	);
-
-	const selectLang = (lang, setUpdateLang, changeModalState) => {
+	const selectLang = (lang, setUpdateLang, changeModalState, setCurrentLang) => {
 		langList.forEach(element => {
 			element.checked = false;
 		});
@@ -72,6 +68,8 @@ export default function LangModal(props) {
 		langList.forEach(element => {
 			if (lang == element.title) {
 				element.checked = true;
+				console.log(element.title);
+				setCurrentLang(element.title);
 			}		
 		});
 
@@ -101,7 +99,16 @@ export default function LangModal(props) {
 					<SafeAreaView style={styles.langModalSafeAria}>
 						<FlatList
 							data={stateLangList}
-							renderItem={({ item }) => <Item title={item.title} path={item.path} checked={item.checked} setUpdateLangFnc={setStateLangList} selectLang={selectLang} changeModalState={props.changeState}/>}
+							renderItem={({ item }) => 
+								<Item 
+									title={item.title}
+									path={item.path}
+									checked={item.checked}
+									setUpdateLangFnc={setStateLangList}
+									selectLang={selectLang}
+									changeModalState={props.changeState}
+									setCurrentLang={props.setCurrentLang}
+								/>}
 							keyExtractor={item => item.id}
 						/>
 					</SafeAreaView>

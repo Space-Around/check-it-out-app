@@ -4,7 +4,7 @@ import { TouchableOpacity, View, Text, Image, StyleSheet } from 'react-native';
 
 export default function ProposalBlock(props) {    
     return (
-        <TouchableOpacity style={styles.proposalBlock}>
+        <TouchableOpacity style={styles.proposalBlock} onPress={() => props.onPress()}>
             <View style={styles.proposalBlockChildren}>
                 <Text style={styles.proposalBlockText}>{props.text}</Text>            
             </View>

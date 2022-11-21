@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
 		flex: 1,		
 	},
 	accountView: {
-		flex: 1,	
+		flex: 1,
 		width: '100%',
 		heught: '100%',
 		paddingLeft: '8%',

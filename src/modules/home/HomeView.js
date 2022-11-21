@@ -10,6 +10,7 @@ import LogoButton from '../../components/LogoButton'
 import CustomButton from '../../components/Button'
 import CheckItOutModal from '../../components/CheckItOutModal'
 import LangModal from '../../components/LangModal'
+import ProposalModal from '../../components/ProposalModal'
 import blueVersion from '../../styles/colors'
 
 
@@ -39,9 +40,9 @@ export default function HomeView({ route, navigation }) {
 			<View style={styles.homeViewRequestsBlock}>
 				<View style={styles.homeViewRequestsBlockChild}>
 					<Title text='Proposal'/>
-					<IconButton icon='persentage'/>
+					<IconButton icon='persentage' onPress={() => setModalProposalVisible(!modalProposalVisible)}/>
 				</View>				
-				<ProposalBlock text='Subscription for one year' bigText='20' smallText='%'/>
+				<ProposalBlock text='Subscription for one year' bigText='20' smallText='%' onPress={() => setModalProposalVisible(!modalProposalVisible)}/>
 			</View>
 			<View style={styles.homeViewButtonBlock}>
 				<LogoButton icon='translate'
@@ -55,8 +56,9 @@ export default function HomeView({ route, navigation }) {
 					onPress={() => setModalCameraVisible(!modalCameraVisible)}
 				/>
 			</View>
-			<CheckItOutModal state={modalCameraVisible} changeState={() => setModalCameraVisible(false)}></CheckItOutModal>
+			<CheckItOutModal state={modalCameraVisible} changeState={() => setModalCameraVisible(false)}/>
 			<LangModal state={modalLangVisible} changeState={() => setModalLangVisible(false)}/>
+			<ProposalModal state={modalProposalVisible} changeState={() => setModalProposalVisible(false)}/>
 		</View>		
 	);
 }

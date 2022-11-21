@@ -3,7 +3,7 @@ import { Modal, TouchableOpacity, View, Text, Image, StyleSheet } from 'react-na
 
 
 export default function PopUp(props) {
-    const [popUpVisible, setPopUpVisible] = useState(true);
+    const [popUpVisible, setPopUpVisible] = useState(false);
     let closeIconPath = '',
         textColor = '',
         bgColor = '';
@@ -26,7 +26,7 @@ export default function PopUp(props) {
         case "primary": {
             closeIconPath = require("../../assets/images/icons/blue_close.png"),
             textColor = 'blue',
-            bgColor = 'lightblue';
+            bgColor = '#BDC3FF';
 
             break;
         }
@@ -36,7 +36,7 @@ export default function PopUp(props) {
         <Modal
             animationType="fade"
             transparent={true}
-            visible={popUpVisible}
+            visible={props.isPopUpVisible}
             onRequestClose={() => {            
                 setPopUpVisible(!popUpVisible);
             }}
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
         height: 15,
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center',        
+        alignItems: 'center',
     },
     mainViewPopUp: {
         width: '100%',
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
         display: 'flex',
         justifyContent: 'flex-end',
         alignItems: 'center',
-        elevation: 20
+        elevation: 20,        
     },
     viewPopUp: {
         width: "90%",
@@ -83,7 +83,9 @@ const styles = StyleSheet.create({
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        flexDirection: 'row'
+        flexDirection: 'row',
+        borderWidth: 4,
+        borderColor: 'blue'
     },
     iconButtonModal: {
         width: 40,
