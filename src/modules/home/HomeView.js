@@ -11,6 +11,7 @@ import CustomButton from '../../components/Button'
 import CheckItOutModal from '../../components/CheckItOutModal'
 import LangModal from '../../components/LangModal'
 import ProposalModal from '../../components/ProposalModal'
+import ResponseModal from '../../components/ResponseModal'
 import blueVersion from '../../styles/colors'
 
 
@@ -19,6 +20,12 @@ export default function HomeView({ route, navigation }) {
 	const [modalLangVisible, setModalLangVisible] = React.useState(false);
 	const [modalProposalVisible, setModalProposalVisible] = React.useState(false);
 	const [modalAdvVisible, setModalAdvVisible] = React.useState(false);
+	const [responseModalVisible, setResponseModalVisible] = React.useState(false);
+	// const [isTakePhoto, setIsTakePhoto] = React.useState(false);
+
+	// React.useEffect(() => {
+	// 	setTimeout(2000, () => setResponseModalVisible(!responseModalVisible))
+	// }, [isTakePhoto]);
 
 	return (
 		<View style={styles.homeView}>
@@ -56,9 +63,10 @@ export default function HomeView({ route, navigation }) {
 					onPress={() => setModalCameraVisible(!modalCameraVisible)}
 				/>
 			</View>
-			<CheckItOutModal state={modalCameraVisible} changeState={() => setModalCameraVisible(false)}/>
+			<CheckItOutModal openResponseModal={() => {setResponseModalVisible(true)}} state={modalCameraVisible} changeState={() => setModalCameraVisible(false)}/>
 			<LangModal state={modalLangVisible} changeState={() => setModalLangVisible(false)}/>
 			<ProposalModal state={modalProposalVisible} changeState={() => setModalProposalVisible(false)}/>
+			<ResponseModal state={responseModalVisible} changeState={() => setResponseModalVisible(false)}/>
 		</View>		
 	);
 }

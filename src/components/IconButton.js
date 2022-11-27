@@ -18,6 +18,10 @@ export default function IconButton(props) {
             iconPath = require('../../assets/images/icons/persentage.png');
             break;
         }
+        case 'copy': {
+            iconPath = require('../../assets/images/icons/copy.png');
+            break;
+        }
     }    
 
     return (
@@ -25,7 +29,7 @@ export default function IconButton(props) {
             style={styles.iconButton}
             onPress={() => props.onPress()}
         >
-            <Image source={iconPath} resizeMode='contain' style={styles.iconButtonSize} />
+            <Image source={iconPath} resizeMode='contain' style={[styles.iconButtonSize, props.style]} />
         </TouchableOpacity>
     );
 }

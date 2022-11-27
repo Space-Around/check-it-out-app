@@ -40,11 +40,12 @@ export default function CheckItOutModal(props) {
 
 	const onMediaCaptured = React.useCallback(
 		(media, type) => {
-		  console.log(`Media captured! ${JSON.stringify(media)}`);
+			console.log(`Media captured! ${JSON.stringify(media)}`);
 		//   navigation.navigate('MediaPage', {
 		// 	path: media.path,
 		// 	type: type,
 		//   });
+			props.openResponseModal();
 		},
 		[],
 	);
@@ -218,11 +219,11 @@ const styles = StyleSheet.create({
 		top: 0,
 	},
 	button: {
-		width: 60,
-		height: 60,
+		width: 50,
+		height: 50,
 		padding: 15,
 		borderRadius: 50,
-		backgroundColor: 'rgba(140, 140, 140, 0.3)',
+		// backgroundColor: 'rgba(140, 140, 140, 0.3)',
 		justifyContent: 'center',
 		alignItems: 'center',
 	},
@@ -244,15 +245,15 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		width: '100%',
 		height: '10%',
-		paddingLeft: 20,
-		paddingRight: 20,
+		paddingLeft: 60,
+		paddingRight: 60,
 		paddingBottom: 50,		
 		bottom: 0,
 		position: 'absolute'
 	},
 	controlButtonImage: {
-		width: 40,
-		height: 40,
+		width: 30,
+		height: 30,
 		backgroundColor: 'transparent'	
 	},
 	flashButton: {
@@ -261,6 +262,6 @@ const styles = StyleSheet.create({
 	closeCameraButton: {
 		position: 'absolute',
 		top: 20,
-		right: 20
+		right: 50
 	}
 });

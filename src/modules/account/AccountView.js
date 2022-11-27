@@ -3,10 +3,15 @@ import { SafeAreaView, ScrollView, StatusBar, View, Text, StyleSheet } from 'rea
 import Title from '../../components/Title'
 import CustomButton from '../../components/Button'
 import TextInput from '../../components/TextInput'
+import PlanModal from '../../components/PlanModal'
 import blueVersion from '../../styles/colors'
 
 
 export default function AccountView({ route, navigation }) {
+	const [modalStandartVisible, setModalPlusVisible] = React.useState(false);
+	const [modalStandartPlusVisible, setModalStandartPlusVisible] = React.useState(false);
+	const [modalProVisible, setModalProVisible] = React.useState(false);
+
     return (
 		<SafeAreaView style={styles.safeAria}>
 			<ScrollView style={styles.accountView}>
@@ -15,9 +20,9 @@ export default function AccountView({ route, navigation }) {
 				</View>
 				<View style={styles.accountViewPlanBlock}>
 					<Title text='Plans'/>
-					<CustomButton style={styles.accountPlanButton} backgroundColor={blueVersion.blue} textColor='white' text='Standart' width='100%'/>
-					<CustomButton style={styles.accountPlanButton} backgroundColor={blueVersion.transparent} borderColor='black' textColor='black' text='Standart Plus' width='100%'/>
-					<CustomButton backgroundColor={blueVersion.transparent} borderColor='black' textColor='black' text='Pro' width='100%'/>
+					<CustomButton onPress={() => setModalPlusVisible(!modalStandartVisible)} style={styles.accountPlanButton} backgroundColor={blueVersion.blue} textColor='white' text='Standart' width='100%'/>
+					<CustomButton onPress={() => setModalStandartPlusVisible(!modalStandartPlusVisible)} style={styles.accountPlanButton} backgroundColor={blueVersion.transparent} borderColor='black' textColor='black' text='Standart Plus' width='100%'/>
+					<CustomButton onPress={() => setModalProVisible(!modalProVisible)} backgroundColor={blueVersion.transparent} borderColor='black' textColor='black' text='Advanced' width='100%'/>
 				</View>
 				<View style={styles.accountViewUsernameBlock}>
 					<Title text='User name'/>
@@ -40,18 +45,21 @@ export default function AccountView({ route, navigation }) {
 					<CustomButton style={styles.accountSaveButton} backgroundColor={blueVersion.blue} textColor='white' text='Save' width='100%'/>
 				</View>
 			</ScrollView>
+			<PlanModal planName={'Standart'} requestsCount={'250'} price={'5$'} state={modalStandartVisible} changeState={() => setModalPlusVisible(false)} />
+			<PlanModal planName={'Standart Plus'} requestsCount={'300'} price={'10$'} state={modalStandartPlusVisible} changeState={() => setModalStandartPlusVisible(false)} />
+			<PlanModal planName={'Advanced'} requestsCount={'400'} price={'20$'} state={modalProVisible} changeState={() => setModalProVisible(false)} />
 		</SafeAreaView>
     );
 }
 
 const styles = StyleSheet.create({
 	safeAria: {
-		flex: 1,		
+		flex: 1,
 	},
 	accountView: {
 		flex: 1,
 		width: '100%',
-		heught: '100%',
+		height: '100%',
 		paddingLeft: '8%',
 		paddingRight: '8%',
 		overflow: 'scroll'

@@ -13,6 +13,7 @@ export default function CustomButton(props) {
                 width: props.width ? props.width : '100%'
             }, styles.customButton, props.style]}
             onPress={() => props.onPress()}
+            disabled={props.disabled}
         >
             <Text
                 style={[{color: props.textColor}, styles.textCustomButton]}>

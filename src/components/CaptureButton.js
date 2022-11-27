@@ -157,7 +157,9 @@ const _CaptureButton = ({
 			>
 				<Reanimated.View style={styles.flex}>
 					<Reanimated.View style={[styles.shadow, shadowStyle]} />
-					<TouchableOpacity onPress={takePhoto} style={styles.button} />
+					<TouchableOpacity onPress={takePhoto} style={styles.button}>
+						<View style={styles.redButton}></View>
+					</TouchableOpacity>
 				</Reanimated.View>
 			</PanGestureHandler>
 		</Reanimated.View>
@@ -185,9 +187,18 @@ const styles = StyleSheet.create({
     width: CAPTURE_BUTTON_SIZE,
     height: CAPTURE_BUTTON_SIZE,
     borderRadius: CAPTURE_BUTTON_SIZE / 2,
-    borderWidth: BORDER_WIDTH,
+    borderWidth: 4,
     borderColor: 'white',
 	position: 'relative',
-	top: -20
+	top: -20,
+	display: 'flex',
+	justifyContent: 'center',
+	alignItems: 'center'
   },
+  redButton: {
+	backgroundColor: 'red',
+	width: 45,
+	height: 45,
+	borderRadius: 50
+  }
 });

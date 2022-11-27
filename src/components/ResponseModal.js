@@ -6,7 +6,7 @@ import blueVersion from '../styles/colors'
 import { SafeAreaView, ScrollView, TouchableOpacity, View, Image, Text, StyleSheet } from 'react-native';
 
 
-export default function FavoriteModal(props) {
+export default function ResponseModal(props) {
     return (
         <Modal isVisible={props.state}>
 			<View style={styles.favoriteModal}>
@@ -20,11 +20,7 @@ export default function FavoriteModal(props) {
 					</TouchableOpacity>
 				</View>
 				<SafeAreaView style={styles.safeAria}>
-					<ScrollView style={styles.favoriteModalView}>											
-						<View style={styles.favoriteModalBlock}>
-							<Text style={styles.favoriteModalTextLabel}>{'Date & time'}</Text>
-							<CustomButton disabled={true} style={styles.favoriteModalInfoButton} backgroundColor={blueVersion.transparent} borderColor='black' textColor='black' text='12/05/2022 10:30' width='100%'/>
-						</View>
+					<ScrollView style={styles.favoriteModalView}>																	
 						<View style={styles.favoriteModalBlock}>
 							<Text style={styles.favoriteModalTextLabel}>{'Language'}</Text>
 							<CustomButton disabled={true} style={styles.favoriteModalInfoButton} backgroundColor={blueVersion.transparent} borderColor='black' textColor='black' text='English' width='100%'/>
@@ -48,7 +44,7 @@ export default function FavoriteModal(props) {
 							</View>
 						</View>
 						<View style={styles.favoriteModalBlock}>
-							<CustomButton backgroundColor={blueVersion.transparent} borderColor='red' textColor='red' text='Delete' width='100%'/>
+							<CustomButton backgroundColor={blueVersion.blue} textColor='white' borderColor={blueVersion.blue} text='Add to Favorite' width='100%'/>
 						</View>						
 					</ScrollView>
 				</SafeAreaView>

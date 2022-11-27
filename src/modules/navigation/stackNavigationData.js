@@ -13,18 +13,6 @@ const StackNavigationData = [
     component: TabNavigator,
   },
   {
-    name: 'Auth',
-    component: AuthView,
-  },
-  {
-    name: 'SignIn',
-    component: SignInView,
-  },
-  {
-    name: 'SignUp',
-    component: SignUpView,
-  },
-  {
     name: 'Plan',
     component: PlanView,
   },
